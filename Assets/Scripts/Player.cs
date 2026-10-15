@@ -34,6 +34,11 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
             isGrounded = true;//Şuan yerdesin
+        else if(collision.gameObject.CompareTag("Box"))
+        {
+            Debug.Log("Kutuya çarptın");
+            Time.timeScale = 0; // Oyunu duraklat
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -41,5 +46,4 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
             isGrounded = false;//Şuan havadasın
     }
-
 }
